@@ -16,11 +16,8 @@ gem 'cancan'
 gem 'chartkick'
 gem 'role_model'
 gem 'audited-activerecord'
-<<<<<<< HEAD
 #gem 'better_errors'
-=======
 gem 'better_errors'
->>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
