@@ -17,7 +17,7 @@ gem 'chartkick'
 gem 'role_model'
 gem 'audited-activerecord'
 #gem 'better_errors'
-gem 'better_errors'
+#gem 'better_errors'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'

@@ -12,17 +12,10 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-<<<<<<< HEAD
   database: funsone_development
   pool: 5
   username: root
   password: "satyr123"
-=======
-  database: funjemasu_development
-  pool: 5
-  username: root
-  password: "satyr1232009"
->>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -32,32 +25,18 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-<<<<<<< HEAD
   database: funsone_test
   pool: 5
   username: root
   password: "satyr123"
-=======
-  database: funjemasu_test
-  pool: 5
-  username: root
-  password: "satyr1232009"
->>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
   socket: /var/run/mysqld/mysqld.sock
 
 production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-<<<<<<< HEAD
   database: funsone_production
   pool: 5
   username: root
   password: "satyr123"
-=======
-  database: funjemasu_production
-  pool: 5
-  username: root
-  password: "satyr1232009"
->>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
   socket: /var/run/mysqld/mysqld.sock

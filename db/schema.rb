@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20160502175906) do
-=======
-ActiveRecord::Schema.define(:version => 20150630194119) do
->>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
 
   create_table "atleta", :force => true do |t|
     t.string   "nombres"
@@ -82,10 +78,6 @@ ActiveRecord::Schema.define(:version => 20150630194119) do
     t.boolean  "carta_residencia"
     t.boolean  "constancia_inscripcion"
     t.boolean  "constancia_estudios"
-<<<<<<< HEAD
-=======
-    t.boolean  "notas_bachiller"
->>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
     t.boolean  "record_academico"
     t.boolean  "fondo_negro"
     t.string   "regimen"
@@ -149,7 +141,6 @@ ActiveRecord::Schema.define(:version => 20150630194119) do
     t.date     "r_fecha_nac"
     t.string   "r_nacionalidad"
     t.string   "r_sexo"
-<<<<<<< HEAD
     t.string   "rif"
   end
 
@@ -157,8 +148,6 @@ ActiveRecord::Schema.define(:version => 20150630194119) do
     t.string "cedula",  :null => false
     t.string "cuenta",  :null => false
     t.string "nombres", :null => false
-=======
->>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
   end
 
   create_table "reclamos", :force => true do |t|
