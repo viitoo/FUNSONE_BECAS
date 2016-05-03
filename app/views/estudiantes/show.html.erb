@@ -10,7 +10,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        
+
       </div>
     </div>
   </div>
@@ -35,17 +35,14 @@
                       </li>
                       <li>
                         <span class="item-key">Nombres</span>
-<<<<<<< HEAD
-                        <div class="vcard-item"> <%= @estudiante.nombre %> <%= @estudiante.apellido%></div>
-=======
+
                         <div class="vcard-item"> <%= @estudiante.nombre %> <%= @estudiante.nombre2 %> <%= @estudiante.apellido%> <%= @estudiante.apellido2 %></div>
->>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
                       </li>
                       <li>
                         <span class="item-key">Cedula</span>
                         <div class="vcard-item">
-                        
-                        <% if @estudiante.nacionalidad == "Venezolano"%> 
+
+                        <% if @estudiante.nacionalidad == "Venezolano"%>
                         V-<%= @estudiante.cedula %>
                         <%else%>
                         E-<%= @estudiante.cedula %>
@@ -102,9 +99,9 @@
                         <ul class="unstyled sepH_b item-list">
 
                           <% if !@reclamos.blank? %>
-                          
+
                             <% for item in @reclamos %>
-                          
+
                               <%if item.status=="Abierto"%>
                                <li> <%= link_to "# #{item.id} ( Abierto )", reclamo_path(item.id) %>
                                   Asignado:<span class="badge badge-warning"><%=  User.where(:id=>item.asignado_por).first.username %></span>
@@ -112,7 +109,7 @@
                                   Fecha Tope:<strong><%= item.fecha_final.strftime("%d/%m/%Y")%></strong>
                                 </li>
                               <% end -%>
-                          
+
                               <%if item.status=="En Proceso"%>
                                 <li> <%= link_to "# #{item.id} ( En Proceso )", reclamo_path(item.id) %>
                                   Asignado:<span class="badge badge-warning"><%=  User.where(:id=>item.asignado_por).first.username %></span>
@@ -122,7 +119,7 @@
                               <% end -%>
                             <% end -%>
                            <% end -%>
-                       
+
                         </ul>
                       </li>
                       <li class="v-heading">
@@ -144,11 +141,11 @@
   <div class="accordion-group">
     <div class="accordion-heading">
       <%= raw "<a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion#{item.id}' href='#collapse#{item.id}'>" %>
-      Periodo 
+      Periodo
 
 
-        <span class="badge badge-important"><%=item.periodo %></span>, 
-      
+        <span class="badge badge-important"><%=item.periodo %></span>,
+
 
       Actualizacion hecha el <%= item.updated_at.strftime("%d/%m/%Y a las %H:%M:%S" )%>
       </a>
@@ -313,10 +310,7 @@
                     </ul>
                   </div>
                 </div>
-             </div>  
+             </div>
            </div>
         <%#= f.button :submit, :class=> "btn btn-large btn-primary" %>
         <%#= link_to "Cancelar", :back , :class=> "btn btn-large btn-danger" %>
-
-
-

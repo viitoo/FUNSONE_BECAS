@@ -38,16 +38,11 @@
 
   <%= f.input :tipo_estudio, collection:  ['Tecnico Medio','Tecnico Superior','Licenciatura','Ingenieria','Postgrado','Especializacion','Maestria','Doctorado'] , label: 'Tipo de Estudio',:prompt=>:false%>
 
-<<<<<<< HEAD
-  
-  <%= f.input :periodo  %>
-  
-=======
+
  <%= f.input :periodo do %>
   <%= f.select :periodo, Configuracion.where(:status=>true).map { |r| [r.periodo, { class: r.periodo }] }, include_blank: true %>
-<% end %> 
- 
->>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
+<% end %>
+
   <%= f.input :escala, collection: ['0-5','0-10','0-20'] , label: 'Escala de Calificacion',:prompt=>:false%>
   <%= f.input :promedio_actual, label: 'Promedio Actual'%>
   <%= f.input :menosmaterias,label: 'Menos de 4 materias?'%>
@@ -59,7 +54,7 @@
 
 
 
-   
+
 <div class="row">
   <div class="span6">
      <div class="alert alert-info">
@@ -127,6 +122,3 @@
 
 </div>
 </div>
-
-
-

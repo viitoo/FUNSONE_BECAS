@@ -1,5 +1,5 @@
 <div class="btn-toolbar">
-       <%if current_user.role == "admin" %>   
+       <%if current_user.role == "admin" %>
 
 <%= link_to 'Nuevo Estudiante', new_estudiante_path , :class=>"btn btn-primary"%>
 <% end -%>
@@ -43,17 +43,13 @@
             <tr>
                 <td><%= estudiante.id %></td>
                 <td><%= link_to estudiante.cedula, estudiante %></td>
-<<<<<<< HEAD
-                <td><%= link_to "#{estudiante.nombre} #{estudiante.apellido}".upcase, estudiante %> </td>
-=======
                 <td><%= link_to "#{estudiante.nombre} #{estudiante.nombre2} #{estudiante.apellido} #{estudiante.apellido2}".upcase, estudiante %> </td>
->>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
                 <td><%= estudiante.telf_movil %></td>
-    
+
                       <% if !estudiante.becas.blank? %>
                                <!-- <td><%= estudiante.becas.last.institucion %></td>-->
                                 <td><span class="badge badge-warning"><%= estudiante.becas.last.updated_at.strftime("%d/%m/%Y") %></span></td>
-        <% if (estudiante.becas.last.foto and estudiante.becas.last.partica_nac and estudiante.becas.last.copia_cedula and estudiante.becas.last.carta_residencia and estudiante.becas.last.constancia_inscripcion and estudiante.becas.last.constancia_estudios and estudiante.becas.last.record_academico and estudiante.becas.last.tipo_beca == "Actualizacion") or (estudiante.becas.last.foto and estudiante.becas.last.partica_nac and estudiante.becas.last.copia_cedula and estudiante.becas.last.carta_residencia and estudiante.becas.last.constancia_inscripcion and estudiante.becas.last.constancia_estudios and estudiante.becas.last.fondo_negro and estudiante.becas.last.notas_bachiller  and estudiante.becas.last.tipo_beca=="Nuevo")   
+        <% if (estudiante.becas.last.foto and estudiante.becas.last.partica_nac and estudiante.becas.last.copia_cedula and estudiante.becas.last.carta_residencia and estudiante.becas.last.constancia_inscripcion and estudiante.becas.last.constancia_estudios and estudiante.becas.last.record_academico and estudiante.becas.last.tipo_beca == "Actualizacion") or (estudiante.becas.last.foto and estudiante.becas.last.partica_nac and estudiante.becas.last.copia_cedula and estudiante.becas.last.carta_residencia and estudiante.becas.last.constancia_inscripcion and estudiante.becas.last.constancia_estudios and estudiante.becas.last.fondo_negro and estudiante.becas.last.notas_bachiller  and estudiante.becas.last.tipo_beca=="Nuevo")
           %>
                                     <td><span class="badge badge-info">Completo</span>
                                           </td>
@@ -63,28 +59,28 @@
                         <% else %>
                                 <td><span class="badge badge-inverse">No Act.</span></td>
                                 <td><span class="badge badge-inverse">No  Act.</span></td>
-      
+
                         <% end -%>
                   <td>
-                <%= link_to edit_estudiante_path(estudiante) do %> 
+                <%= link_to edit_estudiante_path(estudiante) do %>
                 <%= image_tag "gCons/edit.png" %>
                 <% end -%>
                 <%= link_to estudiante, method: :delete, data: { confirm: 'Esta seguro que desea eliminar el registro?' }  do %>
                 <%= image_tag "gCons/delete-item.png" %>
                 <% end -%>
-           
+
               </tr>
               <% end %>
-      
-      
+
+
             </tbody>
           </table>
           <div class="pagination">
               <%= will_paginate @estudiantes_c ,:param_name => 'completos_page'%>
           </div>
         </div>
-      
-    
+
+
 
 
 

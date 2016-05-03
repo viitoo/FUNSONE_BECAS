@@ -34,15 +34,10 @@ Debes llenar cuidadosamente el formulario con todos los campos posibles ( los ca
               DATOS PERSONALES Y DE CONTACTO
       </div>
       <%= f.input :cedula %>
-<<<<<<< HEAD
-      <%= f.input :nombre, label: 'Nombres' %>
-      <%= f.input :apellido, label: 'Apellidos' %>
-=======
       <%= f.input :nombre, label: 'Primer Nombre' %>
       <%= f.input :nombre2, label: 'Segundo Nombre'%>
       <%= f.input :apellido, label: 'Primer Apellido' %>
       <%= f.input :apellido2, label: 'Segundo Apellido' %>
->>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
       <%= f.input :sexo, collection: ["Masculino", "Femenino"], label: 'Sexo' ,:prompt=>:false%>
       <%= f.input :edad, label: 'Edad' %>
       <%= f.input :lugar_nac,label: 'Lugar de Nacimiento' %>
@@ -71,14 +66,6 @@ Debes llenar cuidadosamente el formulario con todos los campos posibles ( los ca
 
                   </div></div>
       <div id="menor">
-<<<<<<< HEAD
-      <%#= f.input :nombres_papa, label: 'Nombres del Padre', hint: 'Ejemplo: Pablo Jose',:placeholder=>'Agregue los Nombres'%>
-      <%#= f.input :apellidos_papa, label: 'Apellidos del Padre', hint: 'Ejemplo: Perez Ibarra',:placeholder=>'Agregue los Apellidos'%>
-      <%#= f.input :cedula_papa, label: 'Cédula del Padre' ,hint: 'Ejemplo: 7777777',:placeholder=>'Agregue solo numeros' %>
-      <%#= f.input :nombres_mama, label: 'Nombres de la Madre', hint: 'Ejemplo: Maria Alejandra',:placeholder=>'Agregue los Nombres' %>
-      <%#= f.input :apellidos_mama, label: 'Apellidos de la Madre', hint: 'Ejemplo: Jimenez Rosario',:placeholder=>'Agregue los Nombres'%>
-      <%#= f.input :cedula_mama, label: 'Cedula de la Madre' ,hint: 'Ejemplo: 6666666',:placeholder=>'Agregue solo numeros'%>
-=======
       <%= f.input :r_nombre1, label: 'Primer Nombre', hint: 'Ejemplo: Pablo',:placeholder=>'Agregue el primer nombre'%>
       <%= f.input :r_nombre2, label: 'Segundo Nombre', hint: 'Ejemplo: Jose',:placeholder=>'Agregue el segundo nombre '%>
       <%= f.input :r_apellido1, label: 'Primer Apellido', hint: 'Ibarra',:placeholder=>'Agregue el primer apellido'%>
@@ -87,7 +74,6 @@ Debes llenar cuidadosamente el formulario con todos los campos posibles ( los ca
       <%= f.input :r_fecha_nac, label: 'Fecha de Nacimiento ' %>
       <%= f.input :r_nacionalidad, collection:['Venezolano','Extranjero'] %>
       <%= f.input :r_sexo, collection:['Masculino','Femenino'] %>
->>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
 </div>
 </div>
 
@@ -101,33 +87,7 @@ Debes llenar cuidadosamente el formulario con todos los campos posibles ( los ca
 
   </div>
 
-  <div class="tab-pane fade in" id="economicos">
-<<<<<<< HEAD
-        <div class="alert alert-info">
-              <strong>DESCRIPCION:</strong>
-                    DATOS SOBRE INFORMACION SOCIOECONOMICA
-        </div>
-          <%#= f.input :parentezco, label: 'Quien aporta los recursos para sus estudios', collection: [ ['Ingresos Propios', 'Ingresos Propios' ], ['Ingresos Familiares', 'Ingresos Familiares y Otros'] ], as: :radio_buttons, label_method: :last, value_method: :first, checked: @estudiante.parentezco, :html_options => { :style => "display:inline" }%>
-        <div id="div2">
-          <div class="well">
-              <%#=f.input :nombre_familiar%>
-              <%#=f.input :apellido_familiar%>
-              <%#=f.input :cedula_familiar%>
-              <%#=f.input :telf_familiar%>
-          </div>
-          </div>
-          <%#= f.input :trabajo_actual, label: 'Trabaja Actualmente?', collection: [ ['Si', 'Si' ], ['No', 'No'] ], as: :radio_buttons, label_method: :last, value_method: :first, checked: @estudiante.trabajo_actual, :html_options => { :style => "display:inline" }%>
-          <%#=f.input :nombre_empresa%>
-          <%#=f.input :rif_empresa%>
-          <%#=f.input :cargo_empresa%>
-          <%#=f.input :direccion_empresa, :input_html=>{ :rows =>5, :cols=>120}%>
-          <%#=f.input :telefono_empresa%>
-          <%#=f.input :sueldo_empresa%>
-          <%#=f.input :jefe_inmediato%>
-          <%#=f.input :telf_jefe%>
-=======
->>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
-      </div>
+
      </div>
      <hr />
      <div align="left">

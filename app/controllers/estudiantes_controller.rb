@@ -1,12 +1,12 @@
 class EstudiantesController < ApplicationController
     before_filter :authenticate_user!
-    load_and_authorize_resource  
+    load_and_authorize_resource
     skip_authorize_resource :only => :notificacion
 
 
 def notificacion
     @estudiante = Estudiante.find(params[:estudiante])
-    if  Notification.documentos(@estudiante).deliver  
+    if  Notification.documentos(@estudiante).deliver
       @mensaje = "El correo fue enviado al email: #{@estudiante.email}"
     end
     respond_to do |format|
@@ -18,10 +18,7 @@ end
 
 def estudiantes_nuevos
     @estudiantes_nuevos= Estudiante.joins(:becas)
-<<<<<<< HEAD
-=======
     @periodo = Configuracion.where(:status=>true)
->>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
     @estudiantes= Estudiante.joins(:becas).where(becas: {tipo_beca: "Nuevo"}).count
 end
 
@@ -40,7 +37,7 @@ def dashboard
    @monto_local = Configuracion.where(:status => 1).pluck(:monto_local)
    @monto_afuera = Configuracion.where(:status => 1).pluck(:monto_afuera)
    @monto_excelencia = Configuracion.where(:status => 1).pluck(:monto_excelencia)
-   @total_nuevo_afuera = Estudiante.joins(:becas).where(becas: {tipo_beca: "Nuevo",regimen: "Afuera", periodo: "2014"}).count 
+   @total_nuevo_afuera = Estudiante.joins(:becas).where(becas: {tipo_beca: "Nuevo",regimen: "Afuera", periodo: "2014"}).count
    #@total_nuevo_afuera_es = Estudiante.joins(:becas).where(becas: {tipo_beca: "Nuevo",regimen: "Afuera",estudio_economico: "Si"}).count
    @total_nuevo_local = Estudiante.joins(:becas).where(becas: {tipo_beca: "Nuevo",regimen: "Local",periodo: "2014"  }).count
    #@total_nuevo_local_es = Estudiante.joins(:becas).where(becas: {tipo_beca: "Nuevo",regimen: "Local",estudio_economico: "Si" }).count
@@ -59,7 +56,7 @@ def index
   else
    @estudiantes_c = Estudiante.joins(:becas).search(params[:search], params[:completos_page]).group("estudiantes.id")
   end
-   
+
   respond_to do |format|
       format.html
       format.json { render json: @estudiantes }
