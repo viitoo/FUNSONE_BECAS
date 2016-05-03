@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Periodo:</b>
+  <%= @configuracion.periodo %>
+</p>
+
+<p>
+  <b>Excelencia:</b>
+  <%= @configuracion.limite_excelencia %>
+</p>
+<p>
+  <b>Locales:</b>
+  <%= @configuracion.limite_local %>
+</p>
+<p>
+  <b>Periodo:</b>
+  <%= @configuracion.limite_afuera %>
+</p>
+<p>
+  <b>Periodo:</b>
+  <%= @configuracion.status %>
+</p>
+
+<%= link_to 'Editar', edit_configuracion_path(@configuracion) %> |
+<%= link_to 'Volver', configuracions_path %>

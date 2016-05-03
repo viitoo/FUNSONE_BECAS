@@ -1,0 +1,31 @@
+<h1>Listing atleta</h1>
+
+<table>
+  <tr>
+    <th>Nombres</th>
+    <th>Apellidos</th>
+    <th>Cedula</th>
+    <th>Telefono</th>
+    <th>Disciplina</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @atleta.each do |atletum| %>
+  <tr>
+    <td><%= atletum.nombres %></td>
+    <td><%= atletum.apellidos %></td>
+    <td><%= atletum.cedula %></td>
+    <td><%= atletum.telefono %></td>
+    <td><%= atletum.disciplina %></td>
+    <td><%= link_to 'Show', atletum %></td>
+    <td><%= link_to 'Edit', edit_atletum_path(atletum) %></td>
+    <td><%= link_to 'Destroy', atletum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Atletum', new_atletum_path %>

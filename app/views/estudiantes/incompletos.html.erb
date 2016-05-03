@@ -1,0 +1,89 @@
+<div class="btn-toolbar">
+       <%if current_user.role == "admin" %>   
+
+<%= link_to 'Nuevo Estudiante', new_estudiante_path , :class=>"btn btn-primary"%>
+<% end -%>
+    <button class="btn">Importar Listado</button>
+    <button class="btn">Exportar Listado</button>
+</div>
+<%= form_tag estudiantes_path, :method => 'get' do %>
+    <div class="alert alert-info">
+            <p>
+                 <strong>Buscar estudiante::</strong>
+                 <%= text_field_tag :search, params[:search], :class => "span2 input-medium search-query" %>
+                 <%= submit_tag "Buscar", :name => nil ,:class=>"btn btn-primary" %> o <%= link_to "Cancelar busqueda", :back, :class=>"btn btn-danger" %>
+            </p>
+        </div>
+
+<% end %>
+   
+          <table class="table table-hover ">
+            <thead>
+              <tr>
+                  <th>Exp.</th>
+                  <th>Cedula</th>
+                  <th>Nombre y Apellido</th>
+                  <th>Telefono</th>
+                  <th>Actualizacion</th>
+                  <th>Recaudos</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <% @estudiantes_i.each do |estudiante| %>
+              <tr>
+                  <td><%= estudiante.id %></td>
+                  <td><%= link_to estudiante.cedula, estudiante %></td>
+                  <td><%= link_to "#{estudiante.nombre} #{estudiante.apellido}".upcase, estudiante %> </td>
+                  <td><%= estudiante.telf_movil %></td>
+      
+                        <% if !estudiante.becas.last.blank? %>
+                                  <td><span class="badge badge-warning"><%= estudiante.becas.last.updated_at.strftime("%d/%m/%Y") %></span></td>
+      <% if (estudiante.becas.last.foto and estudiante.becas.last.partica_nac and estudiante.becas.last.copia_cedula and estudiante.becas.last.carta_residencia and estudiante.becas.last.constancia_inscripcion and estudiante.becas.last.constancia_estudios and estudiante.becas.last.record_academico and estudiante.becas.last.tipo_beca == "Actualizacion") or (estudiante.becas.last.foto and estudiante.becas.last.partica_nac and estudiante.becas.last.copia_cedula and estudiante.becas.last.carta_residencia and estudiante.becas.last.constancia_inscripcion and estudiante.becas.last.constancia_estudios and estudiante.becas.last.fondo_negro and estudiante.becas.last.notas_bachiller  and estudiante.becas.last.tipo_beca=="Nuevo") %>   
+                                      <td><span class="badge badge-info">Completo</span>     
+                                      </td>     
+                                  <% else %>     
+                                     <td><span class="badge badge-important">Incompleto</span></td>    
+                                  <% end -%>     
+                        <% else %>      
+                                <td><span class="badge badge-inverse">No Act.</span></td>     
+                                <td><span class="badge badge-inverse">No Act.</span></td>     
+      
+                        <% end -%>
+                  <td>
+                <%= link_to edit_estudiante_path(estudiante) do %> 
+                <%= image_tag "gCons/edit.png" %>
+                <% end -%>
+                <%= link_to estudiante, method: :delete, data: { confirm: 'Esta seguro que desea eliminar el registro?' }  do %>
+                <%= image_tag "gCons/delete-item.png" %>
+                <% end -%>
+           
+              </tr>
+              <% end %>
+           </tbody>
+          </table>
+      <div class="pagination">
+              <%= will_paginate @estudiantes_i ,:param_name => 'incompletos_page'%>
+      </div>
+        </div>
+      
+
+
+
+
+<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Delete Confirmation</h3>
+    </div>
+    <div class="modal-body">
+        <p class="error-text">Are you sure you want to delete the user?</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button class="btn btn-danger" data-dismiss="modal">Delete</button>
+    </div>
+</div>

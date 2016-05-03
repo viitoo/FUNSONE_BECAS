@@ -1,0 +1,64 @@
+<h3>Configuracion</h3>
+
+<table class="table table-hover">
+  <tr>
+    <th>Periodo</th>
+    <th># becarios local</th>
+    <th>Pago Local</th>
+    <th># becarios Foraneo</th>
+    <th>Pago Foraneo</th>
+    <th># becarios Excelencia</th>
+    <th>Pago Excelencia</th>
+
+    <th>Status</th>
+    <th></th>
+
+  </tr>
+
+<% @configuracions.each do |configuracion| %>
+  <tr>
+    <td><%= configuracion.periodo %></td>
+    <td><%= configuracion.limite_local %> </td> 
+    <td><%= configuracion.monto_local %>Bs.</td> 
+    <td><%= configuracion.limite_afuera %> </td>
+    <td><%= configuracion.monto_afuera %>Bs.</td>
+    <td><%= configuracion.limite_excelencia %> </td>
+    <td><%= configuracion.monto_excelencia %>Bs.</td>
+    <td><%= configuracion.status %></td>
+
+
+                <td><%= link_to edit_configuracion_path(configuracion) do %> 
+                <%= image_tag "gCons/edit.png" %>
+                <% end -%>
+                <%= link_to configuracion, method: :delete, data: { confirm: 'Esta seguro que desea eliminar el registro?' }  do %>
+                <%= image_tag "gCons/delete-item.png" %>
+                <% end -%></td>
+           
+
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nueva Configuracion', new_configuracion_path, :class=>"btn btn-primary" %>
+
+<hr />
+<h3>Usuarios del sistema</h3>
+<table class="table ">
+  <tr>
+    <th>Nombre</th>
+    <th>perfil</th>
+    <th></th>
+
+  </tr>
+
+<% @usuarios.each do |usuario| %>
+  <tr>
+    <td><%= usuario.username %></td>
+    <td><%= usuario.role %></td>
+    <td><%#= link_to 'Mostrar', user_path %></td>
+    <td><%#= link_to 'Editar', edit_user_registration_path(usuario) %></td>
+  </tr>
+<% end %>
+</table>

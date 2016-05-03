@@ -1,0 +1,132 @@
+<div class='nested-fields'>
+<div class="well">
+
+<div class="row">
+  <div class="span6">
+     <div class="alert alert-info">
+              <strong>DESCRIPCION:</strong>
+                    INFORMACION DEL NIVEL DE ESTUDIO
+     </div>
+  </div>
+
+  <div class="span6">
+      <div class="text-right">
+            <%= link_to_remove_association "Remover Estudios", f, :class=>"btn btn-danger" %>
+      </div>
+  </div>
+
+
+</div>
+
+<%= f.input :estudiante_id, as: :hidden %>
+<div class="row">
+  <div class="span6">
+  <%= f.input :status_beca, :collection => ['Aprobada','En Proceso' ,'Suspendida'], :as => :radio, :label=>"Estatus de Beca"%>
+  <%= f.input :estudio_economico, :collection => ['Si', 'No'], :as => :radio, :label=>"E. Socio-Economico" %>
+  <%= f.input :nivel_de, collection: ["Bachillerato","Tecnico","Pregado","PostGrado","Doctorado","Otros"], label: 'Nivel Actual',:prompt=>:false  %>
+  <%= f.input :institucion %>
+  <%= f.input :tipo_institucion, collection: ["Publica", "Privada"], label: 'Tipo de Institucion',label: 'Tipo de Institucion',:prompt=>:false%>
+  <%= f.input :carrera, label: 'Carrera que cursa'%>
+  <%= f.input :semestre, label: 'Semestre Actual'%>
+
+  </div>
+  <div class="span6">
+
+  <%= f.input :regimen,:collection => ['Local','Afuera'], :as => :radio, :label=>"Tipo de Estudiante" %>
+  <%= f.input :tipo_beca,:collection => ['Actualizacion','Nuevo'], :as => :radio, :label=>"Tipo de Beca" %>
+  <%= f.input :duracion, collection: ['Trimestre','Semestre','Año'], label: 'Duracion' ,:prompt=>:false%>
+
+  <%= f.input :tipo_estudio, collection:  ['Tecnico Medio','Tecnico Superior','Licenciatura','Ingenieria','Postgrado','Especializacion','Maestria','Doctorado'] , label: 'Tipo de Estudio',:prompt=>:false%>
+
+<<<<<<< HEAD
+  
+  <%= f.input :periodo  %>
+  
+=======
+ <%= f.input :periodo do %>
+  <%= f.select :periodo, Configuracion.where(:status=>true).map { |r| [r.periodo, { class: r.periodo }] }, include_blank: true %>
+<% end %> 
+ 
+>>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
+  <%= f.input :escala, collection: ['0-5','0-10','0-20'] , label: 'Escala de Calificacion',:prompt=>:false%>
+  <%= f.input :promedio_actual, label: 'Promedio Actual'%>
+  <%= f.input :menosmaterias,label: 'Menos de 4 materias?'%>
+
+
+  </div>
+</div>
+              <hr />
+
+
+
+   
+<div class="row">
+  <div class="span6">
+     <div class="alert alert-info">
+              <strong>DESCRIPCION:</strong>
+                    REQUISITOS EXIGIDOS
+     </div>
+  </div>
+
+  <div class="span6">
+
+  </div>
+
+
+</div>
+
+        <div class="row">
+
+          <div class="span4">
+            <%= f.input :foto %>
+            <%= f.input :partica_nac%>
+            <%= f.input :copia_cedula%>
+
+          </div>
+          <div class="span4">
+            <%= f.input :carta_residencia%>
+            <%= f.input :constancia_inscripcion%>
+            <%= f.input :constancia_estudios%>
+          </div>
+
+
+          <div class="span4">
+            <%= f.input :notas_bachiller%>
+            <%= f.input :record_academico%>
+            <%= f.input :fondo_negro%>
+          </div>
+        </div>
+
+        <div class="row">
+           <hr />
+
+  <div class="span6">
+     <div class="alert alert-info">
+              <strong>DESCRIPCION:</strong>
+                    INFORMACION DE OTRAS BECAS
+     </div>
+  </div>
+
+  <div class="span6"></div>
+</div>
+                 <div class="row">
+                    <div class="span6">
+                      <%= f.input :beca , label: 'Posee alguna Beca?'%>
+                    </div>
+                    <div class="span6">
+                      <%= f.input :beca_mont, label: 'Monto de la Beca'%>
+                      <%= f.input :institucion_beca, label: 'Otorgada por' %>
+
+                    </div>
+                 </div>
+
+
+
+
+
+
+</div>
+</div>
+
+
+

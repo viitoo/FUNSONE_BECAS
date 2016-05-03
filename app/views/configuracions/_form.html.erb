@@ -1,0 +1,33 @@
+<%= simple_form_for(@configuracion) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :periodo %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.input :limite_local %>
+    <%= f.input :monto_local %>
+    
+  </div>
+
+  <div class="form-inputs">
+  	<%= f.input :limite_afuera%>
+    <%= f.input :monto_afuera %>
+  </div>
+
+<div class="form-inputs">
+  
+<%= f.input :limite_excelencia%>
+<%= f.input :monto_excelencia%>
+
+</div> 
+  <div class="form-inputs">
+  	<%= f.input :status , label: "Marcar para activar" %>
+  </div>
+
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

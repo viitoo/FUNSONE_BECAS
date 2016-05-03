@@ -1,0 +1,18 @@
+
+<div class="span6 alert alert-info">
+  <h4><p><bold>Nuevo Ingreso:</bold> <%= @total_nuevo %> Estudiantes</p></h4>
+  <p><bold>Afuera: </bold><%= @total_nuevo_afuera %> Normal + <%=@total_nuevo_afuera_es %> E-S = <%= @total_nuevo_afuera+@total_nuevo_afuera_es %> Estudiantes</p>
+  <p><bold>Local: </bold><%= @total_nuevo_local %> Normal + <%= @total_nuevo_local_es %> E-S = <%= @total_nuevo_local+@total_nuevo_local_es %> Estudiantes</p>
+  <%=link_to "CSV", estudiantes_path(format: "csv")%> |
+  <%=link_to "Excel", estudiantes_path(format: "xls")%>
+</div>
+
+
+<div class="span6 alert alert-success">
+  <h4><p><bold>Actualizacion:</bold> <%= @total_actualizacion %> Estudiantes</p></h4>
+  <p><bold>Afuera: </bold><%= @total_actualizacion_afuera %> Normal + <%=@total_actualizacion_afuera_es %> E-S = <%= @total_actualizacion_afuera+@total_actualizacion_afuera_es %> Estudiantes</p>
+  <p><bold>Local: </bold><%= @total_actualizacion_local %> Normal + <%= @total_actualizacion_local_es %> E-S = <%= @total_actualizacion_local+@total_actualizacion_local_es %> Estudiantes</p>
+    <%=link_to "CSV", estudiantes_path(format: "csv")%> |
+  <%=link_to "Excel", estudiantes_path(format: "xls")%>
+
+</div>

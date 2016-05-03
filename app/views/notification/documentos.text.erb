@@ -1,0 +1,44 @@
+Buen dia <%= @estudiante.nombre %> <%= @estudiante.apellido %>,
+Le informamos que su expediente no esta completo, debe consignar los siguientes documentos:
+
+
+<% if !@estudiante.becas.last.foto %>
+	- Foto tipo Carnet
+<% end -%>
+<% if !@estudiante.becas.last.partica_nac %>
+    - Partida de Nacimiento
+<% end -%>
+<% if !@estudiante.becas.last.copia_cedula%>
+	- Copia de la Cédula
+<% end -%>
+<% if !@estudiante.becas.last.carta_residencia%>
+	- Carta de residencia (debe ser del estado Nueva Esparta)
+<% end -%>
+<% if !@estudiante.becas.last.constancia_inscripcion%>
+	- Constancia actualizada de inscripción
+<% end -%>
+<% if !@estudiante.becas.last.constancia_estudios%>
+	- Constancia actualizada de estudios
+<% end -%>
+<% if !@estudiante.becas.last.notas_bachiller %>
+	- Copia de las notas certificadsa de bachiller(Solo si es estudiante del 1er semestre)
+<% end -%>
+<% if !@estudiante.becas.last.record_academico%>
+	- Record académico universitario
+<% end -%>
+<% if !@estudiante.becas.last.fondo_negro%>
+	- Fondo Negro(Solo si es estudiante del 1er semestre)
+<% end -%>
+
+
+Los documentos deben ser consignados en los proximos 5 dias habiles desde la fecha  (<%= Date.today.strftime("%d/%m/%Y - 9:00AM") %>). de lo contrario la beca sera suspendida.
+
+
+IMPORTANTE: NO DEBE RESPONDER A ESTE CORREO, COMUNIQUESE DIRECTAMENTE A LOS TELEFONOS DE LA FUNDACION.
+
+
+Calle Independencia, Centro de Artes Omar Carreño, diagonal Catedral Nuestra Señora de La Asunción, Frente a la Plaza Bolívar.
+La Asunción Edo. Nueva Esparta.   
+www.funjemasu.org.ve
+E-mail: funjemasu@gmail.com  - Facebook: funjemasu – Twitter: @Funjemasu   
+Telf.: (0295) 2422871                 

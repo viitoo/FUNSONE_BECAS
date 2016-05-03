@@ -1,0 +1,322 @@
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Ventana de notificacion de envio Email</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+                      <h3 class="heading">Perfil del Estudiante</h3>
+              <div class="row-fluid">
+                <div class="span12">
+
+            <div class="vcard">
+                    <img class="thumbnail" src="http://www.placehold.it/80x80/EFEFEF/AAAAAA" alt="" />
+                    <ul>
+                      <li class="v-heading">
+                      Datos Personales <span><% if !@estudiante.becas.nil? %>
+      <% if (@estudiante.becas.last.foto and @estudiante.becas.last.partica_nac and @estudiante.becas.last.copia_cedula and @estudiante.becas.last.carta_residencia and @estudiante.becas.last.constancia_inscripcion and @estudiante.becas.last.constancia_estudios and @estudiante.becas.last.record_academico and @estudiante.becas.last.tipo_beca == "Actualizacion") or ((@estudiante.becas.last.foto and @estudiante.becas.last.partica_nac and @estudiante.becas.last.copia_cedula and @estudiante.becas.last.carta_residencia and @estudiante.becas.last.constancia_inscripcion and @estudiante.becas.last.constancia_estudios and @estudiante.becas.last.fondo_negro and @estudiante.becas.last.notas_bachiller  and @estudiante.becas.last.tipo_beca=="Nuevo") or (@estudiante.becas.last.foto and @estudiante.becas.last.partica_nac and @estudiante.becas.last.copia_cedula and @estudiante.becas.last.carta_residencia and @estudiante.becas.last.constancia_inscripcion and @estudiante.becas.last.constancia_estudios and @estudiante.becas.last.semestre!=1 and @estudiante.becas.last.tipo_beca=="Nuevo"))   %>
+        (DOCUMENTACION COMPLETA)
+      <% else %>
+       ( <%= link_to "Documentos Incompletos...", notificacion_estudiante_path(:estudiante=> @estudiante , :identificador => 1), data: {toggle: "modal", target: "#myModal"} %>)
+
+      <% end -%>
+      <% end -%></span>
+
+                      </li>
+                      <li>
+                        <span class="item-key">Nombres</span>
+<<<<<<< HEAD
+                        <div class="vcard-item"> <%= @estudiante.nombre %> <%= @estudiante.apellido%></div>
+=======
+                        <div class="vcard-item"> <%= @estudiante.nombre %> <%= @estudiante.nombre2 %> <%= @estudiante.apellido%> <%= @estudiante.apellido2 %></div>
+>>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
+                      </li>
+                      <li>
+                        <span class="item-key">Cedula</span>
+                        <div class="vcard-item">
+                        
+                        <% if @estudiante.nacionalidad == "Venezolano"%> 
+                        V-<%= @estudiante.cedula %>
+                        <%else%>
+                        E-<%= @estudiante.cedula %>
+                        <% end -%>
+
+                        </div>
+                      </li>
+                      <li>
+                        <span class="item-key">Email</span>
+                        <div class="vcard-item"><%= @estudiante.email%></div>
+                      </li>
+                      <%if !@estudiante.twitter.blank? %>
+                      <li>
+                        <span class="item-key">Twitter</span>
+                        <div class="vcard-item"><%= @estudiante.twitter %></div>
+                      </li>
+                      <% end -%>
+
+                      <li>
+                        <span class="item-key">Direccion</span>
+                        <div class="vcard-item"><%= @estudiante.direccion.capitalize %>, Municipio <%= @estudiante.municipio%></div>
+                      </li>
+
+                      <li>
+                        <span class="item-key">Nacimiento:</span>
+                        <div class="vcard-item">
+                          <ul class="list_a">
+                            <%= @estudiante.lugar_nac %>, <%= @estudiante.fecha_nac.strftime("%d-%m-%Y") %>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>
+                        <span class="item-key">Telefonos</span>
+                        <div class="vcard-item">
+                        Movil: <%= @estudiante.telf_movil %> | Casa:<%= @estudiante.telf_casa %> | Trabajo:<%= @estudiante.telf_trabajo %>
+                        </div>
+                      </li>
+                                                <%if !@estudiante.cuentas.blank?%>
+
+                        <li>
+                        <span class="item-key">Datos Bancarios</span>
+                        <div class="vcard-item">
+                       N° Cuenta: <b> <%= @estudiante.cuentas.n_cuenta %> </b> | Monto de pago: <b><%= @estudiante.cuentas.monto %></b>
+
+                        </div>
+                      </li>
+                                         <% end -%>
+
+
+                      <li class="v-heading">
+                        Reclamos Abiertos <span>(<%= @reclamos.count %>)</span>
+                      </li>
+                      <li>
+                        <ul class="unstyled sepH_b item-list">
+
+                          <% if !@reclamos.blank? %>
+                          
+                            <% for item in @reclamos %>
+                          
+                              <%if item.status=="Abierto"%>
+                               <li> <%= link_to "# #{item.id} ( Abierto )", reclamo_path(item.id) %>
+                                  Asignado:<span class="badge badge-warning"><%=  User.where(:id=>item.asignado_por).first.username %></span>
+                                  Responsable:<span class="badge badge-info"><%=  User.where(:id=>item.responsable).first.username %></span>
+                                  Fecha Tope:<strong><%= item.fecha_final.strftime("%d/%m/%Y")%></strong>
+                                </li>
+                              <% end -%>
+                          
+                              <%if item.status=="En Proceso"%>
+                                <li> <%= link_to "# #{item.id} ( En Proceso )", reclamo_path(item.id) %>
+                                  Asignado:<span class="badge badge-warning"><%=  User.where(:id=>item.asignado_por).first.username %></span>
+                                  Responsable:<span class="badge badge-info"><%=  User.where(:id=>item.responsable).first.username %></span>
+                                  Fecha Tope:<strong><%= item.fecha_final.strftime("%d/%m/%Y")%></strong>
+                                </li>
+                              <% end -%>
+                            <% end -%>
+                           <% end -%>
+                       
+                        </ul>
+                      </li>
+                      <li class="v-heading">
+                        BECAS OTORGADAS.
+                      </li>
+                      <li>
+                        <div class="sepH_a item-list clearfix">
+                    <table class="table table table-bordered table-condensed">
+  <tr class="alert alert-info">
+    <td colspan="9" >
+      <b>ACTUALIZACION DE ESTUDIOS Y REQUISITOS:</b></td>
+    </tr>
+  <tr>
+    <td colspan="9">
+  <% if !@estudiante.becas.blank? %>
+  <% for item in @estudiante.becas.order("updated_at desc") %>
+
+<%= raw "<div class='accordion' id='accordion#{item.id}'>" %>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <%= raw "<a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion#{item.id}' href='#collapse#{item.id}'>" %>
+      Periodo 
+
+
+        <span class="badge badge-important"><%=item.periodo %></span>, 
+      
+
+      Actualizacion hecha el <%= item.updated_at.strftime("%d/%m/%Y a las %H:%M:%S" )%>
+      </a>
+    </div>
+    <%= raw "<div id='collapse#{item.id}' class='accordion-body collapse in'>" %>
+      <div class="accordion-inner">
+<strong>
+          <% if item.escala=="0-5" %>
+            <% if item.promedio_actual.to_f >= 4.5 and item.semestre!=1%>
+                <span class="badge badge-success">PAGO POR 550Bs. !!!</span>
+            <% else%>
+                <% if item.regimen =="Afuera"%>
+                   <span class="badge badge-success"> PAGO POR 350Bs.</span>
+                <%else%>
+                   <span class="badge badge-success"> PAGO POR 300Bs.</span>
+                <%end%>
+            <%end%>
+          <%end%>
+
+          <% if item.escala=="0-10" %>
+            <% if item.promedio_actual.to_f >= 9.0 and item.semestre!=1%>
+                <span class="badge badge-success">PAGO POR 550Bs. !!!</span>
+            <% else%>
+                <% if item.regimen =="Afuera"%>
+                  <span class="badge badge-success"> PAGO POR 350Bs.</span>
+                <%else%>
+                  <span class="badge badge-success"> PAGO POR 300Bs.</span>
+                <%end%>
+            <%end%>
+          <%end%>
+
+          <% if item.escala=="0-20" %>
+            <% if item.promedio_actual.to_f >= 19.0 and item.semestre!=1 %>
+                <span class="badge badge-success">PAGO POR 550Bs. !!!</span>
+            <% else%>
+              <% if item.regimen =="Afuera"%>
+                <span class="badge badge-success"> PAGO POR 350Bs.</span>
+              <%else%>
+                <span class="badge badge-success"> PAGO POR 300Bs.</span>
+              <%end%>
+            <%end%>
+          <%end%>
+</strong>
+           Tipo beca: <span class="badge badge-info"><%= item.tipo_beca %></span>
+           Localidad: <span class="badge badge-important"><%= item.regimen %></span>
+           Estatus: <span class="badge badge-warning"><%= item.status_beca %></span>
+           Estudio Socio-Economico: <span class="badge badge-inverse"><%= item.estudio_economico %></span>
+ <hr />
+        <table class="table table-bordered">
+          <thead>
+          <tr>
+            <th colspan=3>Universidad</th>
+            <th>Nivel de Instruccion </th>
+            <th>Carrera </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td colspan=3>
+            <%= item.institucion %>(<%= item.tipo_institucion %>)</td>
+            <td><%= item.nivel_de %></td>
+            <td><%= item.carrera %></td>
+          </tr>
+          <tr>
+            <th>periodo</th>
+            <th>Duracion</th>
+            <th>Nivel de Estudios</th>
+            <th>Escala</th>
+            <th>Promedio</th>
+          </tr>
+          <tr>
+            <td><%= item.periodo %></td>
+            <td><%= item.duracion %></td>
+            <td><%= item.tipo_estudio%></td>
+            <td><%= item.escala %></td>
+            <td><%= item.promedio_actual %></td>
+          </tr>
+      </table>
+<p>
+        <div class="span4">
+            <%if !item.foto.blank?%>
+              <p class="text-info"><%= image_tag "icons/54.png"%> Foto <p>
+            <%else%>
+              <p class="text-error"><%= image_tag "icons/52.png"%> Foto </p>
+            <% end%>
+
+            <% if !item.partica_nac.blank?%>
+              <p class="text-info"><%= image_tag "icons/54.png"%> Partida de Nacimiento</p>
+            <%else%>
+              <p class="text-error"><%= image_tag "icons/52.png"%> Partida de Nacimiento </p>
+            <% end%>
+
+
+           <% if !item.copia_cedula.blank?%>
+                <p class="text-info"><%= image_tag "icons/54.png"%> Copia de Cedula</p>
+            <%else%>
+                 <p class="text-error"><%= image_tag "icons/52.png"%> Copia de Cedula</p>
+            <% end%>
+
+
+        </div>
+        <div class="span4">
+               <% if !item.carta_residencia.blank? %>
+              <p class="text-info"><%= image_tag "icons/54.png"%> Carta de Residencia</p>
+            <%else%>
+               <p class="text-error"><%= image_tag "icons/52.png"%> Carta de Residencia</p>
+           <% end%>
+
+
+           <% if !item.constancia_inscripcion.blank?%>
+              <p class="text-info"><%= image_tag "icons/54.png"%> Constancia de Inscripcion</p>
+            <%else%>
+               <p class="text-error"><%= image_tag "icons/52.png"%> Constancia de Inscripcion</p>
+            <% end%>
+
+
+
+            <%if !item.constancia_estudios.blank?%>
+                <p class="text-info"><%= image_tag "icons/54.png"%> Constancia de Estudios</p>
+            <%else%>
+                <p class="text-error"><%= image_tag "icons/52.png"%> Constancia de Estudios</p>
+            <% end%>
+
+
+       </div>
+
+       <div class="span3">
+            <%if !item.record_academico.blank?%>
+               <p class="text-info"><%= image_tag "icons/54.png"%> Record Academico</p>
+            <%else%>
+               <p class="text-error"><%= image_tag "icons/52.png"%> Record Academico</p>
+            <% end%>
+            <%if !item.notas_bachiller.blank?%>
+              <p class="text-info"><%= image_tag "icons/54.png"%> Notas de Bachiller</p>
+            <%else%>
+               <p class="text-error"><%= image_tag "icons/52.png"%> Notas de Bachiller</p>
+            <% end%>
+            <%if !item.fondo_negro.blank?%>
+               <p class="text-info"><%= image_tag "icons/54.png"%> Fondo Negro</p>
+            <%else%>
+               <p class="text-error"><%= image_tag "icons/52.png"%> Fondo Negro</p>
+            <% end%>
+
+       </div>
+
+    </p>
+     </div>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+
+</div>
+</td>
+  </tr>
+</table>
+                        </div>
+                         <%= link_to 'Editar Estudiante', edit_estudiante_path(@estudiante) ,:class=> "item-list-show btn btn-primary btn"  %>
+                         <%= link_to "Cancelar", :back , :class=> "item-list-show btn btn-danger btn" %>
+                         <%= link_to 'Volver', estudiantes_path, :class=> "item-list-show btn btn " %>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+             </div>  
+           </div>
+        <%#= f.button :submit, :class=> "btn btn-large btn-primary" %>
+        <%#= link_to "Cancelar", :back , :class=> "btn btn-large btn-danger" %>
+
+
+

@@ -1,0 +1,68 @@
+
+ 
+<div class="clearfix"></div>
+<hr />
+<div class="btn-toolbar">
+<%= link_to 'Nuevo Reclamo', new_reclamo_path , :class=>"btn btn-primary"%>
+    <button class="btn">Importar Listado</button>
+    <button class="btn">Exportar Listado</button>
+</div>
+
+<%= form_tag reclamos_path, :method => 'get' do %>
+    <div class="alert alert-info">
+            <p>
+                 <strong>Buscar Reclamo::</strong>
+                 <%= text_field_tag :search, params[:search], :class => "span2 input-medium search-query" %>
+                 <%= submit_tag "Buscar", :name => nil ,:class=>"btn btn-primary" %> o <%= link_to "Cancelar busqueda", :back, :class=>"btn btn-danger" %>
+            </p>
+        </div>
+<% end -%>
+
+<table class="table table-condensed ">
+<thead>
+  <tr>
+    <th>Responsable</th>
+    <th>Asignado por</th>
+    <th>Beca</th>
+    <th>Status</th>
+    <th>Tipo motivo</th>
+    <th>Creado</th>
+    <th>Fecha final</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<% @reclamos.each do |reclamo| %>
+
+
+<tr>
+    <td><%= User.where(:id=>reclamo.responsable).first.username %>
+    <td><%= User.where(:id=>reclamo.asignado_por).first.username %></td>
+    <td><%= reclamo.beca_id %></td>
+    <% if reclamo.status=="Abierto"%>
+        <td><span class="label label-important"><%= reclamo.status %></span></td>
+    <% end -%>
+    <% if reclamo.status=="En Proceso"%>
+        <td><span class="label label-warning"><%= reclamo.status %></span></td>
+    <% end -%>
+    <% if reclamo.status=="Cerrado"%>
+        <td><span class="label label-success"><%= reclamo.status %></span></td>
+    <% end -%>
+    <td><%= reclamo.tipo_motivo %></td>
+    <td><span class="badge badge-success"><%= reclamo.created_at.strftime("%d/%m/%Y") %></td>
+    <td><span class="badge badge-inverse"><%= reclamo.fecha_final.strftime("%d/%m/%Y") %></span></td>
+    <td><%= link_to 'Mostrar', reclamo, :class=>"btn btn-small"  %>
+    <%= link_to 'Editar', edit_reclamo_path(reclamo) , :class=>"btn btn-small  "%>
+    <%= link_to 'Destruir', reclamo, method: :delete, data: { confirm: 'Esta seguro que desea eliminar el registro?' }, :class=>"btn btn-small btn-danger"%></td>
+  </tr>
+<% end %>
+</table>
+    <hr />
+<div class="pagination">
+        <%= will_paginate @estudiantes %>
+</div>
+
+<br />
+
+<%= link_to 'Nuevo Reclamo', new_reclamo_path %>

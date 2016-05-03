@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  estudiante_id: 1
+  n_cuenta: MyString
+  monto: MyString
+  cedula: MyString
+
+two:
+  estudiante_id: 1
+  n_cuenta: MyString
+  monto: MyString
+  cedula: MyString

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombres:</b>
+  <%= @atletum.nombres %>
+</p>
+
+<p>
+  <b>Apellidos:</b>
+  <%= @atletum.apellidos %>
+</p>
+
+<p>
+  <b>Cedula:</b>
+  <%= @atletum.cedula %>
+</p>
+
+<p>
+  <b>Telefono:</b>
+  <%= @atletum.telefono %>
+</p>
+
+<p>
+  <b>Disciplina:</b>
+  <%= @atletum.disciplina %>
+</p>
+
+
+<%= link_to 'Edit', edit_atletum_path(@atletum) %> |
+<%= link_to 'Back', atleta_path %>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  responsable: 1
+  asignado_por: 1
+  beca_id: 1
+  status: MyString
+  tipo_motivo: MyString
+  motivo: MyString
+  solucion: MyText
+  observacion: MyText
+  fecha_final: 2014-01-13
+
+two:
+  responsable: 1
+  asignado_por: 1
+  beca_id: 1
+  status: MyString
+  tipo_motivo: MyString
+  motivo: MyString
+  solucion: MyText
+  observacion: MyText
+  fecha_final: 2014-01-13

@@ -1,0 +1,25 @@
+<%= simple_form_for(@reclamo) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    Reclamo asignado por : <%= current_user.username%>
+    <%= f.input :responsable, collection: User.all.collect {|p| [p.username,p.id]},:prompt => true%>
+    <%= f.input :beca_id, as: :string,label: "# Beca" %>
+    <%= f.input :asignado_por,:as=> :hidden, :input_html=>{:value=>current_user.id}%>
+    <%= f.input :status, collection: ["Abierto", "En Proceso","Cerrado"]%>
+    <%= f.input :tipo_motivo, collection: ["No posee Cuenta de Banco","No ha recibido Pago","Pago Incompleto"],as: :check_boxes ,:multiple=>"true"%>
+    <%= f.input :motivo , :input_html=>{ :rows =>5, :cols=>220} %>
+    <%= f.input :solucion, :input_html=>{ :rows =>5, :cols=>120},label: "Comentarios"%>
+    <%#= f.input :observacion, :input_html=>{ :rows =>5, :cols=>120} %>
+    <%= f.input :fecha_final %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+
+
+

@@ -1,0 +1,16 @@
+<%= simple_form_for(@atletum) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :nombres %>
+    <%= f.input :apellidos %>
+    <%= f.input :cedula %>
+    <%= f.input :disciplina, collection: ["Ciclismo de Montaña","Aguas Abiertas","Ajedrez","Atletismo","Baloncesto","Balonmano","Beisbol","Bicicros","Bowling","Boxeo","Ciclismo de Ruta","Coleo","Esgrima","Fisico Culturismo","Futbol Campo","Futbol Sala","Judo","Karate-do","Karting","Kenpo","Kickboxing","Levantamiento de Pesas","Lucha","MTB","Natacion","Natacion con Aletas","Surfing","Tae Kwon Do","Tenis de Campo","Tenis de Mesa","Triatlon","Voleibol Cancha","Voleibol Playa","WindSurf"], label: 'Disciplina',:prompt=>:false %>
+
+    <%= f.input :telefono %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

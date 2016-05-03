@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Hoja1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Nombre</Data></Cell>
+        <Cell><Data ss:Type="String">Apellido</Data></Cell>
+        <Cell><Data ss:Type="String">Cedula</Data></Cell>
+      </Row>
+    <% @estudiantes.each do |estudiante| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= estudiante.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= estudiante.nombre %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= estudiante.apellido %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= estudiante.cedula %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

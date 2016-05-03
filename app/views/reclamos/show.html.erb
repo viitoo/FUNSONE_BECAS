@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Responsable:</b>
+  <%= @reclamo.responsable %>
+</p>
+
+<p>
+  <b>Asignado por:</b>
+  <%= @reclamo.asignado_por %>
+</p>
+
+<p>
+  <b>Beca:</b>
+ # <%= link_to "#{@reclamo.beca_id} ",estudiante_path(@reclamo.beca_id) %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @reclamo.status %>
+</p>
+
+<p>
+  <b>Tipo motivo:</b>
+  <%= @reclamo.tipo_motivo %>
+</p>
+
+<p>
+  <b>Motivo:</b>
+  <%= @reclamo.motivo %>
+</p>
+
+<p>
+  <b>Solucion:</b>
+  <%= @reclamo.solucion %>
+</p>
+
+<p>
+  <b>Observacion:</b>
+  <%= @reclamo.observacion %>
+</p>
+
+<p>
+  <b>Fecha final:</b>
+  <%= @reclamo.fecha_final %>
+</p>
+
+
+<%= link_to 'Edit', edit_reclamo_path(@reclamo) %> |
+<%= link_to 'Back', reclamos_path %>

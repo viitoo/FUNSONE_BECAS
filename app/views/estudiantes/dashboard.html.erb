@@ -1,0 +1,83 @@
+<%#= line_chart Estudiante.group(:municipio).count %>
+<%#= pie_chart Estudiante.group(:municipio).count %>
+
+	<h3>Dashboard << Estadisticas</h3>
+	<hr />
+<h4>Estadisticas de Nuevo Ingreso</h4>
+
+	<table class="table table-bordered">
+		<thead>
+			<th>Nuevos Foraneos</th>
+			<th>Nuevos Locales</th>
+			<th>Total de nuevos</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= @total_nuevo_afuera  %></td>
+				<td><%= @total_nuevo_local  %></td>
+				<td><%= @total_nuevo_afuera + @total_nuevo_local %></td>
+			</tr>
+		</tbody>
+	</table>
+
+<hr />
+<h4>Estadisticas de Actualizacion</h4>
+<table class="table table-bordered">
+		<thead>
+			<th>Actualizacion Foraneos</th>
+			<th>Actualizacion Locales</th>
+			<th>Total de Actualizacion</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= @total_actualizacion_afuera  %></td>
+				<td><%= @total_actualizacion_local  %></td>
+				<td><%= @total_actualizacion  %></td>
+			</tr>
+		</tbody>
+</table>
+<h4>Estadisticas de Actualizacion</h4>
+<table class="table table-bordered">
+		<thead>
+			<th>Foraneos</th>
+			<th>Locales</th>
+			<th>TOTAL ATENDIDO</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= @total_actualizacion_afuera +  @total_nuevo_afuera  %></td>
+				<td><%= @total_actualizacion_local  + @total_nuevo_local%></td>
+				<td><%= @total_actualizacion + @total_nuevo_afuera + @total_nuevo_local %></td>
+			</tr>
+		</tbody>
+</table>
+<hr /> 
+<h4>Disponibilidad de cupo</h4>
+<table class="table table-bordered">
+	<thead>
+		<th>Locales</th>
+		<th>Foraneos</th>
+		<th>Excelencia</th>
+
+	</thead>
+	<tbody>
+		<tr>
+			<td><%= @limite_local%></td>
+			<td><%= @limite_afuera %></td>
+			<td><%= @limite_excelencia %></td>
+		</tr>
+	</tbody>
+	<thead>
+		<th>Monto</th>
+		<th>Monto</th>
+		<th>Monto</th>
+
+	</thead>
+	<tbody>
+		<tr>
+			<td><%= @monto_local%></td>
+			<td><%= @monto_afuera %></td>
+			<td><%= @monto_excelencia %></td>
+		</tr>
+	</tbody>
+</table>

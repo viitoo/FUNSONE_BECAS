@@ -1,0 +1,4 @@
+SELECT estudiantes.id, estudiantes.cedula
+FROM estudiantes
+INNER JOIN becas ON estudiantes.id = becas.estudiante_id
+AND becas.tipo_beca =  "Nuevo"

@@ -1,0 +1,205 @@
+<%= simple_form_for @estudiante, :html => { :class => 'form-horizontal' } do |f| %>
+<div class="alert alert-info">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4>Presta atencion!</h4>
+Debes llenar cuidadosamente el formulario con todos los campos posibles ( los campos marcados con * son obligatorios)
+</div>
+
+<%#= Periodo.periodo %>
+  <% if @estudiante.errors.any? %>
+    <div class="alert alert-<%= pluralize(@estudiante.errors.count, "error") %>"  >
+      <a class="close" data-dismiss='alert' href="#">x</a>
+      <h2>Algunos errores prohiben guardar el Estudiante:</h2>
+
+      <ul>
+      <% @estudiante.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <ul id="myTab" class="nav nav-tabs">
+        <li class="active"><a href="#personal" data-toggle="tab" data-toggle="tab" id="1">Datos Personales</a></li>
+        <li class=""><a href="#estudios" data-toggle="tab" data-toggle="tab" id="2">Becas</a></li>
+        <!--<li class=""><a href="#economicos" data-toggle="tab" data-toggle="tab" id="3">Datos Socio Economicos</a></li>-->
+  </ul>
+
+  <div id="myTabContent" class="tab-content">
+
+  <div class="tab-pane fade active in" id="personal">
+      <div class="alert alert-info">
+            <strong>DESCRIPCION:</strong>
+              DATOS PERSONALES Y DE CONTACTO
+      </div>
+      <%= f.input :cedula %>
+<<<<<<< HEAD
+      <%= f.input :nombre, label: 'Nombres' %>
+      <%= f.input :apellido, label: 'Apellidos' %>
+=======
+      <%= f.input :nombre, label: 'Primer Nombre' %>
+      <%= f.input :nombre2, label: 'Segundo Nombre'%>
+      <%= f.input :apellido, label: 'Primer Apellido' %>
+      <%= f.input :apellido2, label: 'Segundo Apellido' %>
+>>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
+      <%= f.input :sexo, collection: ["Masculino", "Femenino"], label: 'Sexo' ,:prompt=>:false%>
+      <%= f.input :edad, label: 'Edad' %>
+      <%= f.input :lugar_nac,label: 'Lugar de Nacimiento' %>
+      <%= f.input :fecha_nac, as: :date, start_year: Date.today.year - 80, end_year: Date.today.year - 10,order: [:day, :month, :year],label: 'Fecha de Nacimiento' ,:input_html=>{ :class=>"input-medium"} %>
+      <%= f.input :nacionalidad, collection: ["Venezolano", "Extranjero"],:prompt=>true %>
+      <%= f.input :edo_civil, collection: ["Soltero","Casado","Concubinato","Divorciado","Viudo","Separado"], label: 'Edo. Civil',:prompt=>:false %>
+      <%= f.input :estado, collection:["Amazonas", "Anzoátegui", "Apure", "Aragua", "Barinas","Bolívar", "Carabobo", "Cojedes", "Delta Amacuro","Distrito Capital","Falcón","Guárico","Lara","Mérida","Miranda","Monagas","Nueva Esparta","Portuguesa","Sucre","Táchira","Trujillo","Vargas","Yaracuy","Zulia","Otro"],hint: 'Nota: si es extranjero seleccione la opción Otro al final',:label=>"Estado de Nacimiento",:prompt=>:false %>
+      <%= f.input :municipio, collection:  ['Antolin del Campo','Arismendi','Diaz','Garcia','Gomez','Maneiro','Marcano','Mariño','Peninsula de Macanao','Tubores','Villalba'] , label: 'Municipio',prompt: "Selecciona el municipio" %>
+      <%= f.input :direccion, :input_html=>{ :rows =>5, :cols=>120}, label: 'Dirección de Habitacion'%>
+      <%= f.input :email %>
+      <%= f.input :twitter%>
+      <%= f.input :pin, label: 'Blackberry PIN' %>
+      <%= f.input :telf_casa, label: 'Telefono de Casa' , :input_html=>{ :class=>"input-large"}%>
+      <%= f.input :telf_trabajo, label: 'Telefono de Trabajo' , :input_html=>{ :class=>"input-large"}%>
+      <%= f.input :telf_movil, label: 'Telefono movil',  :input_html=>{ :class=>"input-large"} %>
+
+        <div class="control-group radio_buttons optional">
+                <label class="radio_buttons optional control-label">Es ud. menor de edad?</label>
+
+                <div class="controls">
+                  <label class="radio">
+                    <input class="radio_buttons optional" id="estudiante_menor_no"  name ="menor" type="radio" value="no" />No soy menor</label>
+
+                    <label class="radio">
+                      <input class="radio_buttons optional" id="estudiante_menor_si" name ="menor" type="radio" value="Si" />Si soy menor</label>
+
+                  </div></div>
+      <div id="menor">
+<<<<<<< HEAD
+      <%#= f.input :nombres_papa, label: 'Nombres del Padre', hint: 'Ejemplo: Pablo Jose',:placeholder=>'Agregue los Nombres'%>
+      <%#= f.input :apellidos_papa, label: 'Apellidos del Padre', hint: 'Ejemplo: Perez Ibarra',:placeholder=>'Agregue los Apellidos'%>
+      <%#= f.input :cedula_papa, label: 'Cédula del Padre' ,hint: 'Ejemplo: 7777777',:placeholder=>'Agregue solo numeros' %>
+      <%#= f.input :nombres_mama, label: 'Nombres de la Madre', hint: 'Ejemplo: Maria Alejandra',:placeholder=>'Agregue los Nombres' %>
+      <%#= f.input :apellidos_mama, label: 'Apellidos de la Madre', hint: 'Ejemplo: Jimenez Rosario',:placeholder=>'Agregue los Nombres'%>
+      <%#= f.input :cedula_mama, label: 'Cedula de la Madre' ,hint: 'Ejemplo: 6666666',:placeholder=>'Agregue solo numeros'%>
+=======
+      <%= f.input :r_nombre1, label: 'Primer Nombre', hint: 'Ejemplo: Pablo',:placeholder=>'Agregue el primer nombre'%>
+      <%= f.input :r_nombre2, label: 'Segundo Nombre', hint: 'Ejemplo: Jose',:placeholder=>'Agregue el segundo nombre '%>
+      <%= f.input :r_apellido1, label: 'Primer Apellido', hint: 'Ibarra',:placeholder=>'Agregue el primer apellido'%>
+      <%= f.input :r_apellido2, label: 'Segundo apellido', hint: 'Cedeño', :placeholder=>'Agregue el segundo apellido'%>
+      <%= f.input :r_cedula, label: 'Cédula del representante' ,hint: 'Ejemplo: 7777777',:placeholder=>'Agregue solo numeros' %>
+      <%= f.input :r_fecha_nac, label: 'Fecha de Nacimiento ' %>
+      <%= f.input :r_nacionalidad, collection:['Venezolano','Extranjero'] %>
+      <%= f.input :r_sexo, collection:['Masculino','Femenino'] %>
+>>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
+</div>
+</div>
+
+
+  <div class="tab-pane fade in" id="estudios">
+         <div class="well">  <%= link_to_add_association "Agregar Estudio",f,:becas, :class=>"btn btn-large btn-block btn-primary"%> </div>
+<hr />
+            <%= f.simple_fields_for :becas do |p| %>
+               <%= render "beca_fields", :f => p %>
+            <% end -%>
+
+  </div>
+
+  <div class="tab-pane fade in" id="economicos">
+<<<<<<< HEAD
+        <div class="alert alert-info">
+              <strong>DESCRIPCION:</strong>
+                    DATOS SOBRE INFORMACION SOCIOECONOMICA
+        </div>
+          <%#= f.input :parentezco, label: 'Quien aporta los recursos para sus estudios', collection: [ ['Ingresos Propios', 'Ingresos Propios' ], ['Ingresos Familiares', 'Ingresos Familiares y Otros'] ], as: :radio_buttons, label_method: :last, value_method: :first, checked: @estudiante.parentezco, :html_options => { :style => "display:inline" }%>
+        <div id="div2">
+          <div class="well">
+              <%#=f.input :nombre_familiar%>
+              <%#=f.input :apellido_familiar%>
+              <%#=f.input :cedula_familiar%>
+              <%#=f.input :telf_familiar%>
+          </div>
+          </div>
+          <%#= f.input :trabajo_actual, label: 'Trabaja Actualmente?', collection: [ ['Si', 'Si' ], ['No', 'No'] ], as: :radio_buttons, label_method: :last, value_method: :first, checked: @estudiante.trabajo_actual, :html_options => { :style => "display:inline" }%>
+          <%#=f.input :nombre_empresa%>
+          <%#=f.input :rif_empresa%>
+          <%#=f.input :cargo_empresa%>
+          <%#=f.input :direccion_empresa, :input_html=>{ :rows =>5, :cols=>120}%>
+          <%#=f.input :telefono_empresa%>
+          <%#=f.input :sueldo_empresa%>
+          <%#=f.input :jefe_inmediato%>
+          <%#=f.input :telf_jefe%>
+=======
+>>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
+      </div>
+     </div>
+     <hr />
+     <div align="left">
+      <div class="actions">
+        <%= f.button :submit, :class=> "btn btn btn-primary" %>
+        <%= link_to "Cancelar", :back , :class=> "item-list-show btn btn-danger btn" %>
+        <%= link_to 'Volver', estudiantes_path, :class=> "item-list-show btn btn " %>
+
+
+      </div>
+     </div>
+
+
+<% end %>
+<script>
+  $(function () {
+    $('#myTab a:last').tab('show');
+  })
+</script>
+              <%= javascript_include_tag "jquery-latest" %>
+
+              <script type="text/javascript">
+              $(document).ready(function () {
+                 $('#div1,#div2').hide();
+                            $('#estudiante_parentezco_ingresos_propios').click(function () {
+                               $('#div2').hide('fast');
+                        });
+                        $('#estudiante_parentezco_ingresos_familiares').click(function () {
+                               $('#div2').show('fast');
+                         });
+        });
+</script>
+<script>
+  $(function () {
+    $('#myTab a:last').tab('show');
+  })
+</script>
+              <%= javascript_include_tag "jquery-latest" %>
+
+              <script type="text/javascript">
+              $(document).ready(function () {
+
+                 $('#div1,#div2').hide();
+                            $('#estudiante_parentezco_ingresos_propios').click(function () {
+                               $('#div2').hide('fast');
+                        });
+                        $('#estudiante_parentezco_ingresos_familiares').click(function () {
+                               $('#div2').show('fast');
+                         });
+
+                    $('#div3,#div4').hide();
+                            $('#estudiante_trabajo_actual_no').click(function () {
+                               $('#div4').hide('fast');
+                        });
+                        $('#estudiante_trabajo_actual_si').click(function () {
+                               $('#div4').show('fast');
+                         });
+
+                            $('#mayor,#menor').hide();
+                            $('#estudiante_menor_no').click(function () {
+                               $('#menor').hide('fast');
+                        });
+                        $('#estudiante_menor_si').click(function () {
+                               $('#menor').show('fast');
+                         });
+
+
+                 });
+              </script>
+
+              <script type="text/javascript">
+              $('#ir_a_personal').click(function() {
+                $('#myTab a[href="sign_up#personal"]').tab('show');
+                });
+              </script>
