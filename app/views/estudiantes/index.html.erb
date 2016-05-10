@@ -47,10 +47,8 @@
                 <td><%= estudiante.telf_movil %></td>
 
                       <% if !estudiante.becas.blank? %>
-                               <!-- <td><%= estudiante.becas.last.institucion %></td>-->
                                 <td><span class="badge badge-warning"><%= estudiante.becas.last.updated_at.strftime("%d/%m/%Y") %></span></td>
-        <% if (estudiante.becas.last.foto and estudiante.becas.last.partica_nac and estudiante.becas.last.copia_cedula and estudiante.becas.last.carta_residencia and estudiante.becas.last.constancia_inscripcion and estudiante.becas.last.constancia_estudios and estudiante.becas.last.record_academico and estudiante.becas.last.tipo_beca == "Actualizacion") or (estudiante.becas.last.foto and estudiante.becas.last.partica_nac and estudiante.becas.last.copia_cedula and estudiante.becas.last.carta_residencia and estudiante.becas.last.constancia_inscripcion and estudiante.becas.last.constancia_estudios and estudiante.becas.last.fondo_negro and estudiante.becas.last.notas_bachiller  and estudiante.becas.last.tipo_beca=="Nuevo")
-          %>
+        <% if (estudiante.becas.last.foto and estudiante.becas.last.partica_nac and estudiante.becas.last.copia_cedula and estudiante.becas.last.carta_residencia and estudiante.becas.last.constancia_inscripcion and estudiante.becas.last.constancia_estudios and estudiante.becas.last.record_academico and estudiante.becas.last.tipo_beca == "Actualizacion") or (estudiante.becas.last.foto and estudiante.becas.last.partica_nac and estudiante.becas.last.copia_cedula and estudiante.becas.last.carta_residencia and estudiante.becas.last.constancia_inscripcion and estudiante.becas.last.constancia_estudios and estudiante.becas.last.fondo_negro and estudiante.becas.last.tipo_beca=="Nuevo")%>
                                     <td><span class="badge badge-info">Completo</span>
                                           </td>
                                   <% else %>

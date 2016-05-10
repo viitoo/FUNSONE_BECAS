@@ -24,7 +24,7 @@
                     <ul>
                       <li class="v-heading">
                       Datos Personales <span><% if !@estudiante.becas.nil? %>
-      <% if (@estudiante.becas.last.foto and @estudiante.becas.last.partica_nac and @estudiante.becas.last.copia_cedula and @estudiante.becas.last.carta_residencia and @estudiante.becas.last.constancia_inscripcion and @estudiante.becas.last.constancia_estudios and @estudiante.becas.last.record_academico and @estudiante.becas.last.tipo_beca == "Actualizacion") or ((@estudiante.becas.last.foto and @estudiante.becas.last.partica_nac and @estudiante.becas.last.copia_cedula and @estudiante.becas.last.carta_residencia and @estudiante.becas.last.constancia_inscripcion and @estudiante.becas.last.constancia_estudios and @estudiante.becas.last.fondo_negro and @estudiante.becas.last.notas_bachiller  and @estudiante.becas.last.tipo_beca=="Nuevo") or (@estudiante.becas.last.foto and @estudiante.becas.last.partica_nac and @estudiante.becas.last.copia_cedula and @estudiante.becas.last.carta_residencia and @estudiante.becas.last.constancia_inscripcion and @estudiante.becas.last.constancia_estudios and @estudiante.becas.last.semestre!=1 and @estudiante.becas.last.tipo_beca=="Nuevo"))   %>
+      <% if (@estudiante.becas.last.foto and @estudiante.becas.last.partica_nac and @estudiante.becas.last.copia_cedula and @estudiante.becas.last.carta_residencia and @estudiante.becas.last.constancia_inscripcion and @estudiante.becas.last.constancia_estudios and @estudiante.becas.last.record_academico and @estudiante.becas.last.tipo_beca == "Actualizacion") or ((@estudiante.becas.last.foto and @estudiante.becas.last.partica_nac and @estudiante.becas.last.copia_cedula and @estudiante.becas.last.carta_residencia and @estudiante.becas.last.constancia_inscripcion and @estudiante.becas.last.constancia_estudios and @estudiante.becas.last.fondo_negro and @estudiante.becas.last.tipo_beca=="Nuevo") or (@estudiante.becas.last.foto and @estudiante.becas.last.partica_nac and @estudiante.becas.last.copia_cedula and @estudiante.becas.last.carta_residencia and @estudiante.becas.last.constancia_inscripcion and @estudiante.becas.last.constancia_estudios and @estudiante.becas.last.semestre!=1 and @estudiante.becas.last.tipo_beca=="Nuevo"))   %>
         (DOCUMENTACION COMPLETA)
       <% else %>
        ( <%= link_to "Documentos Incompletos...", notificacion_estudiante_path(:estudiante=> @estudiante , :identificador => 1), data: {toggle: "modal", target: "#myModal"} %>)
@@ -277,11 +277,6 @@
                <p class="text-info"><%= image_tag "icons/54.png"%> Record Academico</p>
             <%else%>
                <p class="text-error"><%= image_tag "icons/52.png"%> Record Academico</p>
-            <% end%>
-            <%if !item.notas_bachiller.blank?%>
-              <p class="text-info"><%= image_tag "icons/54.png"%> Notas de Bachiller</p>
-            <%else%>
-               <p class="text-error"><%= image_tag "icons/52.png"%> Notas de Bachiller</p>
             <% end%>
             <%if !item.fondo_negro.blank?%>
                <p class="text-info"><%= image_tag "icons/54.png"%> Fondo Negro</p>

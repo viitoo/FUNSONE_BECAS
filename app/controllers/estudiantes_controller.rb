@@ -52,7 +52,7 @@ end
 
 def index
   if params[:search].blank?
-   @estudiantes_c = Estudiante.joins(:becas).search(params[:search], params[:completos_page]).where("(tipo_beca= 'Actualizacion' and (becas.foto = 1 and becas.partica_nac= 1 and becas.copia_cedula= 1 and becas.carta_residencia= 1 and becas.constancia_inscripcion=1 and becas.constancia_estudios=1 and becas.record_academico=1 )) or (tipo_beca= 'Nuevo' and (becas.foto = 1 and becas.partica_nac=1 and becas.copia_cedula=1 and becas.carta_residencia=1 and becas.constancia_inscripcion=1 and becas.constancia_estudios=1 and becas.fondo_negro=1 and becas.notas_bachiller=1))").group("estudiantes.id")
+   @estudiantes_c = Estudiante.joins(:becas).search(params[:search], params[:completos_page]).where("(tipo_beca= 'Actualizacion' and (becas.foto = 1 and becas.partica_nac= 1 and becas.copia_cedula= 1 and becas.carta_residencia= 1 and becas.constancia_inscripcion=1 and becas.constancia_estudios=1 and becas.record_academico=1 )) or (tipo_beca= 'Nuevo' and (becas.foto = 1 and becas.partica_nac=1 and becas.copia_cedula=1 and becas.carta_residencia=1 and becas.constancia_inscripcion=1 and becas.constancia_estudios=1 and becas.fondo_negro=1))").group("estudiantes.id")
   else
    @estudiantes_c = Estudiante.joins(:becas).search(params[:search], params[:completos_page]).group("estudiantes.id")
   end
@@ -89,10 +89,7 @@ end
 
   def edit
     @estudiante = Estudiante.find(params[:id])
-<<<<<<< HEAD
-=======
    @periodo= Configuracion.where(:status=>true)
->>>>>>> 708882465d44b2ff58afee966b0dac880862d8b7
   end
 
   def create
